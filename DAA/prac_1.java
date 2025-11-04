@@ -23,5 +23,9 @@
      public static void main(String[] args) {
             System.out.println(recursive(2));
             non_recursive(2);
+            // Time Complexity of recursive approach is O(2^n)
+            // Time Complexity of non-recursive approach is O(n)
+            // Space Complexity of recursive approach is O(n) due to call stack
+            // Space Complexity of non-recursive approach is O(1)
      }
 }
