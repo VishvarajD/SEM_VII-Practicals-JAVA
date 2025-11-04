@@ -18,7 +18,7 @@ public class FractionalKnapsack {
         double finalVal = 0.0;
         for(Item item : items ){
             if(caps == 0){
-                break;
+                return finalVal;
             }
             if(item.weight <= caps){
                 finalVal += item.value;
@@ -42,4 +42,7 @@ public class FractionalKnapsack {
         int capacity = 50;
         System.out.println("Maximum value in Knapsack = " + getMaxValue(items, capacity));
     }
+    // Time Complexity: O(n log n) due to sorting
+    // Space Complexity: O(1) 
+    
 }
