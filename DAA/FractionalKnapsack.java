@@ -1,38 +1,41 @@
+//Steps 
+/*1.input array
+ * 2.Class Item
+ * 3.sort arrays acc to v / w
+ * 4.then formula
+ */
 import java.util.*;
-class Item {
-    int weight;
-    int value;
-    Item(int weight,int value){
-        this.value = value;
-        this.weight = weight;
-    }
-}
 
 public class FractionalKnapsack {
+    
+    static class Item {
+        int weight;
+        int value;
+        Item(int weight,int value){
+            this.value = value;
+            this.weight = weight;
+        }
+    }
     static double getMaxValue(Item[] items , int caps){
-
-        Arrays.sort(items,(a, b) -> Double.compare(
-            (double)b.value/ b.weight,
-            (double)a.value/ a.weight
+        Arrays.sort(items,(a,b)->Double.compare(
+            b.value/b.weight, a.value/a.weight
         ));
-        double finalVal = 0.0;
-        for(Item item : items ){
-            if(caps == 0){
-                return finalVal;
+        double finalV = 0.0;
+        for(Item item:items){
+            if(caps==0){
+                return finalV;
             }
-            if(item.weight <= caps){
-                finalVal += item.value;
-                caps-= item.weight; 
-            }
-            else{
-                finalVal +=  caps* (double) item.value/item.weight;
+            if(caps >= item.weight){
+                finalV += item.value;
+                caps -= item.weight;
+            }else{
+                finalV += caps * (double)item.value/item.weight; 
                 caps = 0;
             }
         }
-
-        return finalVal;
+        return finalV;
     }
-    
+
     public static void main(String[] args) {
         Item[] items = {
                 new Item(10, 60),
