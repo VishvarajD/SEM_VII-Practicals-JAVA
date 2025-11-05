@@ -79,8 +79,7 @@ plt.show()
 #Model Selection 
 X = df[['distance_km']]
 Y = df['fare_amount']
-X = df[['distance_km']]
-Y = df['fare_amount']
+
 X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size= 0.2,random_state = 18)
 
 lr = LinearRegression()
